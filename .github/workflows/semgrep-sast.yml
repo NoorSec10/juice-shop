@@ -2,11 +2,12 @@ name: Semgrep SAST Scan
 
 on:
   push:
-    branches: ["main", "master"]
+    branches: ["main"]
 
 jobs:
-  semgrep-scan:
+  semgrep:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -14,5 +15,5 @@ jobs:
       - name: Install Semgrep
         run: pip install semgrep
 
-      - name: Run Semgrep SAST scan
+      - name: Run Semgrep Scan
         run: semgrep scan --config=auto
